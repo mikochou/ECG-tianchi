@@ -1,0 +1,33 @@
+# data
+dir_root: '../data/'
+data_root: '../data/hf_round2_train'
+arrythmia_path: '../data/hf_round2_arrythmia.txt'
+train_txt_path: '../data/hf_round2_train.txt'
+train_csv_path: '../user_data/hf_round2_label_train.csv'
+validation_csv_path: '../user_data/hf_round2_label_validation.csv'
+test_root: '../data/testA'
+test_label: '../data/hf_round1_subA.txt'
+train_len: 16000
+data_lens: 5000
+num_classes: 34
+
+# training
+model: 'ResNet101_Basic'
+epochs: 48
+batch_size: 128
+num_workers: 8
+model_save_path: '../user_data/checkpoints/ResNet101_train_basic_val/'
+loss: 'weighted_binary_crossentropy'
+fast_train: False
+
+# testing
+load_model_path: '' #'../user_data/checkpoints/ResNet101_train/ResNet101_e41.ckpt'
+flip: False
+
+# optimizer
+lr_mode : cosine
+base_lr: 0.000375
+warmup_epochs: 2
+warmup_lr: 0.0
+targetlr : 0.0
+weight_decay: 0.00001

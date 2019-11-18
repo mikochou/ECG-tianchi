@@ -1,0 +1,48 @@
+# data
+dir_root: '../data/'
+data_root: '../data/hf_round2_train'
+arrythmia_path: '../data/hf_round2_arrythmia.txt'
+validation_csv_path: '../user_data/hf_round2_label_validation.csv'
+test_root: '../data/testB_noDup_rename'
+test_label: '../data/hf_round1_subB_noDup_rename.txt'
+train_len: 16000
+data_lens: 5000
+num_classes: 34
+
+# ensemble
+batch_size: 32 #512
+num_workers: 2
+flip: False
+model_name:
+    - 'ResNeXt50_2x64d'
+    - 'ResNet50'
+    - 'ResNet50'
+    - 'ResNet50'
+    - 'ResNet101'
+    - 'ResNeXt50_2x64d'
+    - 'ResNet50_Basic'
+    - 'ResNet50_Basic'
+    - 'ResNet50'
+    - 'ResNet101_Basic'
+model_path:
+    - '../user_data/checkpoints/ResNeXt50_2x64d_train/ResNeXt50_2x64d_e40.ckpt'
+    - '../user_data/checkpoints/ResNet50_trainvaltestA_dev/ResNet50_e47.ckpt'
+    - '../user_data/checkpoints/ResNet50_train/ResNet50_e47.ckpt'
+    - '../user_data/checkpoints/ResNet50_nw_train/ResNet50_e42.ckpt'
+    - '../user_data/checkpoints/ResNet101_train/ResNet101_e41.ckpt'
+    - '../user_data/checkpoints/ResNeXt50_2x64d_train_basic_val/ResNeXt50_2x64d_e44.ckpt'
+    - '../user_data/checkpoints/ResNet50_train_basic_val/ResNet50_Basic_e46.ckpt'
+    - '../user_data/checkpoints/ResNet50_nw_train_basic_val/ResNet50_Basic_e46.ckpt'
+    - '../user_data/checkpoints/ResNet50_train/ResNet50_e47.ckpt'
+    - '../user_data/checkpoints/ResNet101_train_basic_val/ResNet101_Basic_e39.ckpt'
+model_weight:
+    - 89.23
+    - 91.85
+    - 91.69
+    - 91.43
+    - 89.04
+    - 91.99
+    - 91.66
+    - 91.85
+    - 91.60
+

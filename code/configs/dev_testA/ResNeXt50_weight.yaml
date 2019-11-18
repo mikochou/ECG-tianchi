@@ -1,0 +1,33 @@
+# data
+dir_root: '../data/'
+data_root: '../user_data/train+testA'
+arrythmia_path: '../data/hf_round1_arrythmia.txt'
+train_txt_path: '../data/hf_round1_label.txt'
+train_csv_path: '../user_data/hf_round1_label_trainvaltestA.csv'
+validation_csv_path: '../user_data/hf_round1_label_testA.csv'
+test_root: '../data/testA'
+test_label: '../data/hf_round1_subA.txt'
+train_len: 20000
+data_lens: 5000
+num_classes: 55
+
+# training
+model: 'ResNeXt50_2x64d'
+epochs: 48
+batch_size: 96
+num_workers: 8
+model_save_path: '../user_data/checkpoints/ResNeXt50_2x64d_trainvaltestA_dev_weight/'
+loss: 'weighted_binary_crossentropy'
+fast_train: True
+
+# testing
+load_model_path: ''
+flip: False
+
+# optimizer
+lr_mode : cosine
+base_lr: 0.0003
+warmup_epochs: 2
+warmup_lr: 0.0
+targetlr : 0.0
+weight_decay: 0.00001
