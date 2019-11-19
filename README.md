@@ -1,14 +1,16 @@
 ## Solutions for “合肥高新杯”心电人机智能大赛
 
+[中文版readme](./README_CN.md)
+
 source: [“合肥高新杯”心电人机智能大赛](https://tianchi.aliyun.com/competition/entrance/231754/introduction "“合肥高新杯”心电人机智能大赛")
 
-##Result
+## Result
 Round 1 F1-score: 0.8491
 Round 2 F1-score: 0.9228
 In round 1, I rank (5/2353). But my final result failed to be submitted in round 2 due to some committee reason, so I do not know the final online score.
 
 
-##Models
+## Models
 I treat this as 34-class classification (in round 1, it's 55-class).
 I use ResNet 50 / 101 and ResNext 50.
 ![](https://tva1.sinaimg.cn/large/006y8mN6gy1g7tk4gh78xj307209jmx8.jpg)
@@ -84,13 +86,13 @@ python data_preparing.py
 In the data enhancement section I referenced the following code:
 [https://github.com/JavisPeng/ecg_pytorch?spm=5176.12282029.0.0.3d952737ec5tuc](https://github.com/JavisPeng/ecg_pytorch?spm=5176.12282029.0.0.3d952737ec5tuc)
 
-####Loss:
+#### Loss:
 I used weighted binary_cross_entropy. The weight depends on the amount of every class.
 ```shell
 weight = 1 / log( sum(classes)  + 1e-5)
 ```
 
-####Training:
+#### Training:
 ```shell
 cd code
 ./train.sh configs/dev_testA/ResNet50.yaml
@@ -101,11 +103,11 @@ python configs/ensemble.py
 ```
 To train models without age and gender featrue, modify model name in yaml file to 'modelname+_Basic'
 
-####Validating:
+#### Validating:
 ```shell
 python main.py --configs=configs/ensemble.yaml -v
 ```
-####Testing:
+#### Testing:
 ```shell
 python main.py --configs=configs/ensemble.yaml -e
 ```
