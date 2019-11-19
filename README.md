@@ -14,7 +14,7 @@ In round 1, I rank (5/2353). But my final result failed to be submitted in round
 I treat this as 34-class classification (in round 1, it's 55-class).
 I use ResNet 50 / 101 and ResNext 50.
 ![](https://tva1.sinaimg.cn/large/006y8mN6gy1g7tk4gh78xj307209jmx8.jpg)
-This are the scores of all models on offline validation set, which rely on to give the weights in model ensembling.
+<br>This are the scores of all models on offline validation set, which rely on to give the weights in model ensembling.</br>
 
 |#|Model Name|Score|
 | ------------ | ------------ | ------------ |
